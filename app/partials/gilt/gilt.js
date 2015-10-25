@@ -5,7 +5,7 @@ var App;
     (function (Controllers) {
         var GiltController;
         (function (GiltController) {
-            var Gilt = App.Services.GiltService;
+            var Gilt = App.Services.GiltApi;
             //TODO: Get the route params so that we can restore the state
             angular.module('app')
                 .controller('GiltController', function ($scope, $window, GiltApi) {
@@ -13,9 +13,8 @@ var App;
                 vm.data = {};
                 var state = { status: Gilt.Status.active, subject: null, debug: false };
                 vm.state = state;
-                //$window.$GiltController = vm;
-                vm.toggleDebug = function () { return state.debug = !state.debug; };
                 var getData = function () { return GiltApi.sales(state.status, state.subject).then(function (response) { return vm.data.sales = response.data; }); };
+                vm.toggleDebug = function () { return state.debug = !state.debug; };
                 vm.active = function () { state.status = Gilt.Status.active; getData(); };
                 vm.active = function () { state.status = Gilt.Status.active; getData(); };
                 vm.upcoming = function () { state.status = Gilt.Status.upcoming; getData(); };

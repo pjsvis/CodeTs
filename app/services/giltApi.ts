@@ -1,5 +1,5 @@
 /// <reference path="../../typings/tsd.d.ts" />
-module App.Services.GiltService {
+module App.Services.GiltApi {
 	export class Status {
 		public static get active(): string { return 'active' }
 		public static get upcoming(): string { return 'upcoming' }

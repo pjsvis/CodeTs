@@ -1,42 +1,36 @@
 ## Readme
 
 ### Initialise
-1. Install Typescript, Typescript definitions, and Bower
-
+1. Install tools: Typescript, Typescript definitions, and Bower
 
         npm install -g typescript        
         npm install -g tsd
         npm install -g bower
                 
-1. Initialise tsd and bower
+1. Install dependencies via tsd and bower
 
-        tsd init
-        bower init
-
-1. Install dependencies
-
-        bower install angular --save
+        tsd install
         bower install 
 
-### Configure                        
-1. Create tsconfig.json
-
-		{
-            "compilerOptions": {
+### Configure VSCode                   
+1. tsconfig.json
+        
+	{
+                "compilerOptions": {
                 "target": "ES5",
-                "module": "amd",
+                "module": "commonjs",
                 "sourceMap": true
             }
         }
         
-1. Create a hello.ts file
-1. Create tasks.json
-        
-                Ctrl+Shift+P Configure Task Runner
+1. .vscode/settings.json
 
-1. Run the build task
-
-                Ctrl+Shit+B                
+        {                
+                "files.exclude": {
+                "**/*.js": { "when": "$(basename).ts"}, // Hide tsd generated .js files
+                "**/*.js.map": {} // Hide .map files
+                }
+        }             
 
 
                 

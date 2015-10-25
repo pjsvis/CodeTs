@@ -1,5 +1,5 @@
 /// <reference path="../../../typings/tsd.d.ts" />
-module App.Nav{
+module App.Controllers.Nav {
 	class NavRoute {
 		public static get home(): string { return 'home' }
 		public static get gilt(): string { return 'gilt' }
@@ -16,12 +16,13 @@ module App.Nav{
 	}
 
 	// TODO: Get the route params so that we can set the state 
-	angular.module('app').controller('NavController', function() {
-
+	angular.module('app').controller('NavController', NavController)
+	
+	function NavController() {
 		var vm: INavViewModel = this;
 		vm.state = { debug: false, route: NavRoute.home };
 		vm.toggleDebug = () => vm.state.debug = !vm.state.debug;
 		vm.home = () => vm.state.route = NavRoute.home;
 		vm.gilt = () => vm.state.route = NavRoute.gilt;
-	})
+	}
 }
