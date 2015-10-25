@@ -14,7 +14,9 @@ module App.Services.GiltApi {
 		sales: (status: Status, subject?: Subject) => ng.IHttpPromise<any>;
 	}
 
-	angular.module('app').factory('GiltApi', function($http: ng.IHttpService) {
+	angular.module('app').factory('GiltApi', GiltApi) 
+	
+	function GiltApi($http: ng.IHttpService) {
 		var fac: any = {};
 		const baseUrl = 'https://api.gilt.com';
 		const application = 'application=AngularGilt';
@@ -40,5 +42,5 @@ module App.Services.GiltApi {
 			return $http.jsonp(url);
 		}
 		return fac;
-	})
+	}
 }

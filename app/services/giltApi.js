@@ -4,7 +4,7 @@ var App;
     var Services;
     (function (Services) {
         var GiltApi;
-        (function (GiltApi) {
+        (function (GiltApi_1) {
             var Status = (function () {
                 function Status() {
                 }
@@ -20,7 +20,7 @@ var App;
                 });
                 return Status;
             })();
-            GiltApi.Status = Status;
+            GiltApi_1.Status = Status;
             var Subject = (function () {
                 function Subject() {
                 }
@@ -46,8 +46,9 @@ var App;
                 });
                 return Subject;
             })();
-            GiltApi.Subject = Subject;
-            angular.module('app').factory('GiltApi', function ($http) {
+            GiltApi_1.Subject = Subject;
+            angular.module('app').factory('GiltApi', GiltApi);
+            function GiltApi($http) {
                 var fac = {};
                 var baseUrl = 'https://api.gilt.com';
                 var application = 'application=AngularGilt';
@@ -71,7 +72,7 @@ var App;
                     return $http.jsonp(url);
                 };
                 return fac;
-            });
+            }
         })(GiltApi = Services.GiltApi || (Services.GiltApi = {}));
     })(Services = App.Services || (App.Services = {}));
 })(App || (App = {}));

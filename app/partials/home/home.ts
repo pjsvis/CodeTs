@@ -8,10 +8,13 @@ module App.Controllers.Home {
 		data: any;
 		state: IHomeState
 	}
-	angular.module('app').controller('', function() {
+	
+	angular.module('app').controller('HomeController', HomeController)
+	
+	function HomeController() {
 		var vm: IHomeViewModel = this
 		vm.state = { debug: false }
 		vm.data={}
 
-	})
+	}
 }

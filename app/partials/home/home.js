@@ -5,11 +5,12 @@ var App;
     (function (Controllers) {
         var Home;
         (function (Home) {
-            angular.module('app').controller('', function () {
+            angular.module('app').controller('HomeController', HomeController);
+            function HomeController() {
                 var vm = this;
                 vm.state = { debug: false };
                 vm.data = {};
-            });
+            }
         })(Home = Controllers.Home || (Controllers.Home = {}));
     })(Controllers = App.Controllers || (App.Controllers = {}));
 })(App || (App = {}));
