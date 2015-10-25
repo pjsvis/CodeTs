@@ -1,0 +1,30 @@
+<div class="container" ng-controller="GiltController as vm">
+
+	<div class="row space-top">
+		<div class="col-md-2">
+			<ul class="nav nav-pills nav-stacked">
+				<li role="presentation" ng-click="vm.active()" ng-class="{'active': vm.state.status == 'active'}"><a href="">Active</a></li>
+				<li role="presentation" ng-click="vm.upcoming()" ng-class="{'active': vm.state.status == 'upcoming'}"><a href="">Upcoming</a></li>
+			</ul>
+		</div>
+		<div class="col-md-5">
+			<ul class="nav nav-pills">
+				<li role="presentation" ng-click="vm.all()" ng-class="{'active': vm.state.subject == null}"><a href="">All</a></li>
+				<li role="presentation" ng-click="vm.men()" ng-class="{'active': vm.state.subject == 'men'}"><a href="">Men</a></li>
+				<li role="presentation" ng-click="vm.women()" ng-class="{'active': vm.state.subject == 'women'}"><a href="">Women</a></li>
+				<li role="presentation" ng-click="vm.kids()" ng-class="{'active': vm.state.subject == 'kids'}"><a href="">Kids</a></li>
+				<li role="presentation" ng-click="vm.home()" ng-class="{'active': vm.state.subject == 'home'}"><a href="">Home</a></li>
+			</ul>
+		</div>
+		<button class="btn btn-xs pull-right" ng-class="{'btn-info' : vm.state.debug}" ng-click="vm.toggleDebug()">Debug Gilt</button>
+	</div>
+	<div class="row space-top" ng-show="vm.state.debug">
+		Gilt State
+		<pre class="alert alert-info">{{vm.state | json}}</pre>
+	</div>
+	<div class="row space-top" ng-show="vm.state.debug">
+		Data
+		<pre class="alert alert-info">{{vm.data.sales | json}}</pre>
+
+	</div>
+</div>

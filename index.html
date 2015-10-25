@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--<meta http-equiv="refresh" content="3" >-->
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+	<title>Gilt API</title>
+	<link rel="stylesheet" href="app/components/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" href="app/components/bootstrap/dist/css/bootstrap-theme.css">
+	<link rel="stylesheet" type="text/css" href="app/components/angular-tree-control/css/tree-control.css">
+	<link rel="stylesheet" type="text/css" href="app/components/angular-tree-control/css/tree-control-attribute.css">
+	<link rel="stylesheet" href="styles/app.css">
+</head>
+
+<body ng-app="app" ng-cloak>
+
+	<div class="container" ng-controller="NavController as vm">
+		<div class="row space-top">
+			<button class="btn btn-xs pull-right" ng-class="{'btn-info' : vm.state.debug}" ng-click="vm.toggleDebug()">Debug Nav</button>
+			<div class="col-md-2">
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="" ng-click="vm.home()" ng-style="{'active': vm.state.route == 'home'}"><a href="#/">Home</a></li>
+					<li role="presentation"><a href="" ng-click="vm.gilt()" ng-style="{'active': vm.state.route == 'gilt'}"><a href="#/gilt">Gilt</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="row space-top" ng-show="vm.state.debug">			
+			<pre>vm.state</pre>
+			<pre class="alert alert-info">{{vm.state | json}}</pre>
+		</div>
+	</div>
+
+	<div ng-view></div>
+
+	<script src="app/components/jquery/dist/jquery.js"></script>
+	<script src="app/components/bootstrap/dist/js/bootstrap.js"></script>
+	<script src="app/components/angular/angular.js"></script>
+	<script src="app/components/angular-route/angular-route.js"></script>
+	<script src="app/components/angular-animate/angular-animate.js"></script>
+	<script type="text/javascript" src="app/components/angular-tree-control/angular-tree-control.js"></script>
+	<script src="app/components/lodash/lodash.js"></script>
+	<script src="app/app.js"></script>
+	<script src="app/routes.ts"></script>
+	<script src="app/services/giltService.js"></script>
+	<script src="app/partials/nav/nav.js"></script>
+	<script src="app/partials/gilt/gilt.js"></script>
+
+</body>
+
+</html>
